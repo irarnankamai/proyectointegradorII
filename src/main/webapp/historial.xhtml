@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <link rel="stylesheet" type="text/css" href="principal.css" />
+</h:head>
+<body>
+<div class="container">
+ "UN BUEN LIBRO ES UNA VOZ SABIA JUNTO A TI"<br />
+    <div class="header">
+        <img class="logo" src="prin.png" />
+        <div class="header-menu">
+            <a href="/demoJakarta/inicio.xhtml">Inicio</a>
+            <a href="/demoJakarta/principal.xhtml">Lista De libros</a>
+            <a href="/demoJakarta/agregarLibro.xhtml">Agregar</a>
+            <a href="/demoJakarta/historial.xhtml">Historial</a>
+            <a href="/demoJakarta/reporte.xhtml">Reporte</a>
+        </div>
+        <div class="header-icons">
+        </div>
+    </div>
+    <div class="mySwiper"><br />
+        <div class="main-wrapper swiper-wrapper">
+            <h1>HISTORIAL</h1><br />
+            <div class="custom-wrapper">
+                <div class="table">
+                    <div class="table-row cabecera">
+                        <div class="table-cell">Id</div>
+                        <div class="table-cell">Fecha Evento</div>
+                        <div class="table-cell">Tipo Evento</div>
+                        <div class="table-cell">Descripcion</div>
+                        <div class="table-cell">Prestamo</div>
+                        <div class="table-cell">Libro</div>
+                        <div class="table-cell">Usuario</div>
+                    </div>
+                    <ui:repeat value="#{historial.historialPrestamoList}" var="hist">
+                        <div class="table-row">
+                            <div class="table-cell" data-title="Id">#{hist.id}</div>
+                            <div class="table-cell" data-title="Fecha Evento">#{hist.fechaEvento}</div>
+                            <div class="table-cell" data-title="Tipo Accion ">#{hist.tipoEvento}</div>
+                            <div class="table-cell" data-title="Descripcion">#{hist.descripcion}</div>
+                            <div class="table-cell" data-title="Prestamo">#{hist.prestamo.id}</div>
+                            <div class="table-cell" data-title="Libro">#{hist.prestamo.libro}</div>
+                            <div class="table-cell" data-title="Usuario">#{hist.prestamo.usuario}</div>
+                        </div>
+                    </ui:repeat>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</div>
+</body>
+</html>

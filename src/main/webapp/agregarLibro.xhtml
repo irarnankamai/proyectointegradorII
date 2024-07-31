@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <link rel="stylesheet" type="text/css" href="libro.css" />
+</h:head>
+<body>
+<div class="container">
+ "UN BUEN LIBRO ES UNA VOZ SABIA JUNTO A TI"<br />
+    <div class="header">
+        <img class="logo" src="prin.png" />
+        <div class="header-menu">
+             <a href="/demoJakarta/inicio.xhtml">INICIO</a>
+            <a href="/demoJakarta/principal.xhtml">LISTA DE LIBRO</a>
+            <a href="/demoJakarta/agregarLibro.xhtml">AGREGAR LIBRO</a>
+            <a href="/demoJakarta/historial.xhtml">HISTORIAL</a>
+            <a href="/demoJakarta/reporte.xhtml">REPORTE</a>
+            <a href="/demoJakarta/usuario.xhtml">USUARIO</a>
+        </div>
+        <div class="header-icons">
+        </div>
+    </div>
+    <div class="mySwiper">
+        <div class="main-wrapper swiper-wrapper">
+            <div class="form-container">
+                <h2>BUSCAR LIBRO:</h2>
+                <h:form>
+                    <div class="form-group">
+                    <h:outputLabel for="buscarId" value="Ingrese el ID del Libro:" />
+                    <h:inputText id="buscarId"   class="inputText" value="#{librobean.idBuscado}" required="true" requiredMessage="El ID es necesario para la búsqueda" />
+                    </div>
+                    <h:commandButton value="Buscar" action="#{librobean.buscar}"  class="btn1" />
+                </h:form><br />
+                <h2>CREAR LIBRO:</h2>
+                <h:form>
+                    <div class="form-group">
+                        <h:outputLabel for="titulo" value="Título:" />
+                        <h:inputText id="titulo" class="inputText" value="#{librobean.libro.titulo}" />
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="autor" value="Autor:" />
+                        <h:inputText id="autor" class="inputText" value="#{librobean.libro.autor}" />
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="isbn" value="Codigo de libro:" />
+                        <h:inputText id="isbn" class="inputText" value="#{librobean.libro.isbn}" />
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="anio" value="Año Publicaion:" />
+                        <h:inputText id="anio" class="inputText" value="#{librobean.libro.anioPublicacion}" />
+                    </div>
+                    <div class="form-group">
+                        <h:commandButton action="#{librobean.guardar}" value="Guardar" class="btn" />
+                    </div>
+                    <div class="form-group">
+                        <h:commandButton action="#{librobean.eliminar}" value="Eliminar" class="btn2" />
+                    </div>
+                    <h:inputHidden value="#{librobean.libro.id}" />
+                </h:form>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+</body>
+</html>

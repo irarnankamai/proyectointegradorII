@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <link rel="stylesheet" type="text/css" href="principal.css" />
+</h:head>
+<body>
+
+<div class="container">
+ "UN BUEN LIBRO ES UNA VOZ SABIA JUNTO A TI"<br />
+    <div class="header">
+        <img class="logo" src="prin.png" />
+        <div class="header-menu">
+          <a href="/demoJakarta/inicio.xhtml">INICIO</a>
+            <a href="/demoJakarta/principal.xhtml">LISTA DE LIBRO</a>
+            <a href="/demoJakarta/agregarLibro.xhtml">AGREGAR LIBRO</a>
+            <a href="/demoJakarta/historial.xhtml">HISTORIAL</a>
+            <a href="/demoJakarta/reporte.xhtml">REPORTE</a>
+            <a href="/demoJakarta/usuario.xhtml">USUARIO</a>
+        </div>
+        <div class="header-icons">
+        </div>
+        </div>
+<div class="main">
+
+    <input type="checkbox" id="chk" aria-hidden="true" />
+
+    <div class="signup">
+        <h:form>
+            <label for="chk" aria-hidden="true">Crear usuario</label><br />
+            <h:outputLabel id="cedulaLabel" for="cedula" value="Cédula:" styleClass="common-label" />
+            <h:inputText id="cedula" placeholder="Cédula" value="#{usuarios.persona.cedula}" />
+            <h:outputLabel id="nombreLabel" for="nombre" value="Nombre:" styleClass="common-label" />
+            <h:inputText id="nombre" value="#{usuarios.persona.nombre}" /><br />
+            <h:outputLabel id="direccionLabel" for="direccion" value="Dirección:" styleClass="common-label" />
+            <h:inputText id="direccion" value="#{usuarios.persona.direccion}" />
+            <h:outputLabel id="correoLabel" for="correo" value="Correo:" styleClass="common-label" />
+            <h:inputText id="correo" value="#{usuarios.nuevoUsuario.correo}" /><br />
+            <h:outputLabel id="usernameLabel" for="username" value="Nombre de Usuario:" styleClass="common-label" />
+            <h:inputText id="username" value="#{usuarios.nuevoUsuario.username}" />
+            <h:outputLabel id="passwordLabel" for="password" value="Contraseña:" styleClass="common-label" />
+            <h:inputSecret id="password" value="#{usuarios.nuevoUsuario.password}" /><br />
+            <h:commandButton action="#{usuarios.guardar}" value="Guardar" class="btn" />
+        </h:form>
+    </div>
+
+
+    <div class="login">
+        <h:form>
+            <label for="chk" aria-hidden="true">INICIAR SESION</label><br />
+            <h:outputLabel id="loginUsernameLabel" for="username" value="Nombre de Usuario:" styleClass="common-label" />
+            <h:inputText id="username" value="#{usuarios.nuevoUsuario.username}" /><br />
+            <h:outputLabel id="loginPasswordLabel" for="password" value="Contraseña:" styleClass="common-label" />
+            <h:inputSecret id="password" value="#{usuarios.nuevoUsuario.password}" /><br />
+            <h:commandButton action="#{usuarios.logeo}" value="Iniciar" class="btn" />
+        </h:form>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

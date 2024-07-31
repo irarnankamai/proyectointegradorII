@@ -1,0 +1,102 @@
+@charset "ISO-8859-1";
+
+
+:root {
+    --body-color: #ffffff;
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --secondary-color: #ff0000;
+    --secondary-hover-color: #b30000;
+    --success-color: #00ff04;
+    --success-hover-color: #009a00;
+    --header-bg-color: #00bfff;
+    --form-bg-color: rgba(255, 255, 255, 0.9);
+    --cell-bg-color-odd: #e9e9e9;
+    --cell-bg-color-even: #f6f6f6;
+   --cabecera-bg-color: #00bfff;
+    --text-color: #ffffff; /* Color de texto */
+    --header-text-color: #ffffff; /* Color de texto del encabezado */
+    --link-color: #ffffff; /* Color de enlaces */
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+h1, h2, h3 {
+    margin: 0;
+    color: var(--text-color); /* Color de texto de encabezados */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--header-bg-color);
+    background-image: url('logo2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    color: var(--text-color); /* Color de texto del cuerpo */
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color); /* Color de texto del encabezado */
+}
+
+.logo {
+    width: 116px;
+    margin-right: auto;
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+}
+
+.header-menu a:not(:first-child) {
+    margin-left: 20px;
+}
+
+.main-content {
+    margin-top: 40px; /* Ajustar este valor para aumentar o disminuir el espacio */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:#000;
+}
+
+
+

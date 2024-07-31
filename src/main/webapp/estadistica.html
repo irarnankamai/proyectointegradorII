@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadistica</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-3d@2.0.1"></script>
+     <link rel="stylesheet" type="text/css" href="principal.css" />
+</head>
+<body>
+   <div class="container">
+    <div class="header">
+        <img class="logo" src="prin.png" />
+        <div class="header-menu">
+            <a href="/demoJakarta/inicio.xhtml">INICIO</a>
+            <a href="/demoJakarta/principal.xhtml">LISTA DE LIBRO</a>
+            <a href="/demoJakarta/agregarLibro.xhtml">AGREGAR LIBRO</a>
+            <a href="/demoJakarta/historial.xhtml">HISTORIAL</a>
+            <a href="/demoJakarta/reporte.xhtml">REPORTE</a>
+            <a href="/demoJakarta/usuario.xhtml">USUARIO</a>
+            <a href="/demoJakarta/registroUsuario.xhtml">REGISTRAR USUARIO</a>
+        </div>
+     
+        </div>
+         <canvas id="myChart" width="200" height="200"></canvas>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+         
+            var urlParams = new URLSearchParams(window.location.search);
+            var nombres = urlParams.get('nombres') ? decodeURIComponent(urlParams.get('nombres')).split(',') : [];
+            var cantidades = urlParams.get('cantidades') ? decodeURIComponent(urlParams.get('cantidades')).split(',').map(Number) : [];
+
+            
+            console.log('Nombres:', nombres);
+            console.log('Cantidades:', cantidades);
+
+         
+            if (nombres.length && cantidades.every(cantidad => !isNaN(cantidad))) {
+                inicializarGrafico(nombres, cantidades);
+            } else {
+                console.error('Datos no válidos.');
+            }
+        });
+
+        function inicializarGrafico(nombres, cantidades) {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: nombres,
+                    datasets: [{
+                        label: 'Cantidad de Libros',
+                        data: cantidades,
+                        backgroundColor: [
+                            'rgba(0, 255, 0, 0.5)', 
+                            'rgba(0, 255, 0, 0.5)',
+                            'rgba(0, 255, 0, 0.5)',
+                            'rgba(0, 255, 0, 0.5)',
+                            'rgba(0, 255, 0, 0.5)',
+                            'rgba(0, 255, 0, 0.5)'
+                        ],
+                        borderColor: [
+                            'rgba(0, 255, 0, 1)',
+                            'rgba(0, 255, 0, 1)',
+                            'rgba(0, 255, 0, 1)',
+                            'rgba(0, 255, 0, 1)',
+                            'rgba(0, 255, 0, 1)',
+                            'rgba(0, 255, 0, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        'chartjs-plugin-3d': {
+                            enabled: true,
+                            mode: '3d',
+                            rotation: {
+                                x: 0,
+                                y: 0,
+                                z: 0
+                            },
+                            perspective: 1000
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+
+</body>
+</html>

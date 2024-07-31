@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <link rel="stylesheet" type="text/css" href="principal.css" />
+</h:head>
+<body>
+    <div class="container">
+     "UN BUEN LIBRO ES UNA VOZ SABIA JUNTO A TI"<br />
+        <div class="header">
+            <img class="logo" src="prin.png" alt="Logo" />
+            <div class="header-menu">
+            <a href="/demoJakarta/inicio.xhtml">INICIO</a>
+            <a href="/demoJakarta/principal.xhtml">LISTA DE LIBRO</a>
+            <a href="/demoJakarta/agregarLibro.xhtml">AGREGAR LIBRO</a>
+            <a href="/demoJakarta/historial.xhtml">HISTORIAL</a>
+            <a href="/demoJakarta/reporte.xhtml">REPORTE</a>
+            <a href="/demoJakarta/usuario.xhtml">USUARIO</a>
+       
+            </div>
+        </div>
+        <div class="main-content">
+            <h1>LISTA DE LIBROS REGISTRADOS</h1>
+            <div class="table-wrapper">
+                <div class="table">
+                    <div class="table-row cabecera">
+                        <div class="table-cell">Titulo</div>
+                        <div class="table-cell">Autor</div>
+                        <div class="table-cell">Año Publicación</div>
+                        <div class="table-cell">Numero ISBN</div>
+                        <div class="table-cell">Estado</div>
+                      
+                    </div>
+                    <ui:repeat value="#{librobean.libroList}" var="libro">
+                        <div class="table-row">
+                            <div class="table-cell" data-title="Titulo">#{libro.titulo}</div>
+                            <div class="table-cell" data-title="Autor">#{libro.autor}</div>
+                            <div class="table-cell" data-title="Año Publicación">#{libro.anioPublicacion}</div>
+                            <div class="table-cell" data-title="NumeroISBN">#{libro.isbn}</div>
+                            <div class="table-cell" data-title="Estado">#{libro.estado}</div>
+                         
+                        </div>
+                    </ui:repeat>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
